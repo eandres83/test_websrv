@@ -1,5 +1,6 @@
 1. docker-compose up -d --build
 2. docker-compose exec servidor-app /bin/bash
 3. docker-compose exec siege /bin/bash
+siege --concurrent=50 --reps=100 http://servidor:8080
 // Eliminar to
 4. docker system prune -a --volume
