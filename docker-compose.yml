@@ -1,0 +1,23 @@
+services:
+  servidor-app:
+    build: ./server
+    container_name: servidor-app
+    environment:
+      - GIT_REPO_URL=https://github.com/eandres83/websrv.git
+    networks:
+      - stress-test-net
+    entrypoint: tail -f /dev/null
+
+  siege:
+    build: ./siege
+    container_name: siege-tester
+    networks:
+      - stress-test-net
+    depends_on:
+      - servidor-app
+    # --- LÍNEA CORREGIDA ---
+    entrypoint: tail -f /dev/null
+
+networks:
+  stress-test-net:
+    driver: bridge
