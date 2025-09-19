@@ -1,7 +1,7 @@
 services:
   servidor-app:
     build: ./server
-    container_name: servidor-app
+    container_name: servidor
     environment:
       - GIT_REPO_URL=https://github.com/eandres83/websrv.git
     networks:
@@ -10,7 +10,7 @@ services:
 
   siege:
     build: ./siege
-    container_name: siege-tester
+    container_name: siegetester
     networks:
       - stress-test-net
     depends_on:
